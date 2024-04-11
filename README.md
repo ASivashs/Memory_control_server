@@ -1,42 +1,87 @@
-## Memory usage script in Python
+# Memory usage server
 
-<!-- This script is designed to monitor the memory consumption of a system and generate an alarm by sending an HTTP request to an API when the memory usage exceeds a specified threshold. -->
+This server app provide you ability to upload and store data about RAM and ROM in your system. Also you can store data from [Memory_control_scripts](https://github.com/ASivashs/Memory_usage_scripts). 
 
 
-## Install 
+## Requirements
+
+This app tested with following versions of required programs:
+
+- Python 3.11.9 > 
+- Docker 26 > 
+- Docker compose v2.25.0
+
+
+## Installation & Running
 
 1. Clone the repository:
 ```
-git clone git@github.com:AntonioKampf/Memory-control-script-task.git
+git clone https://github.com/ASivashs/Memory_usage_scripts.git
 ```
 
-2. Install the required dependencies:
+2. Running:
 ```
-pip3 install -r requirements.txt
-```
-
-3. Grant execution permission to the script:
-```
-chmod +x ./memory_control.py
+docker compose up
 ```
 
 
 ## Usage
 
-To run the script with default parameters (80% of memory and http://127.0.0.1:8080/reports), use the following command:
+You can send GET, GET (with id), POST, PUT requests to this app. To start working with app you should do request to http://127.0.0.1:8080/reports.
+
+In this app you can store data in JSON format in NoSQL database MongoDB. Example of JSON:
 ```
-python3 ./memory_control.py
+{
+  "total": "13824",
+  "used": "11059",
+  "used_percentage": 80,
+  "free": "526",
+  "shared": "350",
+  "cache": "2914"
+}
 ```
 
-To specify the memory usage and request URL, use the following command:
-```
-python3 ./memory_control.py -m [memory usage percentage, e.g. 30, 40] -r [url]
-```
 
 
-## Help
 
-To get help, run the script with the following command:
-```
-python3 ./memory_control.py --help
+
+# Memory Usage Server
+
+The Memory Usage Server provides you with the ability to upload and store data about RAM and ROM in your system. Additionally, you can store data from the [Memory Control Scripts](https://github.com/ASivashs/Memory_usage_scripts).
+
+## Requirements
+
+This app has been tested with the following versions of required programs:
+
+- **Python 3.11.9**
+- **Docker 26**
+- **Docker Compose v2.25.0**
+
+## Installation & Running
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/ASivashs/Memory_usage_scripts.git
+    ```
+
+2. Run the server:
+    ```bash
+    docker compose up
+    ```
+
+## Usage
+
+You can send **GET**, **GET (with ID)**, **POST**, and **PUT** requests to this app. To start working with the app, make requests to `http://127.0.0.1:8080/reports`.
+
+In this app, you can store data in JSON format in the NoSQL database MongoDB. Here's an example of a JSON data entry:
+
+```json
+{
+  "total": "13824",
+  "used": "11059",
+  "used_percentage": 80,
+  "free": "526",
+  "shared": "350",
+  "cache": "2914"
+}
 ```
