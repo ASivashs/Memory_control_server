@@ -4,8 +4,12 @@ from flask import Flask, redirect, url_for
 def create_app():
     app = Flask(__name__)
 
+    app.config["SECRET_KEY"] = "1111"
+
     # extensions
     from utils import logger
+    from werkzeug.middleware.profiler import ProfilerMiddleware
+    app.wsgi_app = ProfilerMiddleware(app.wsgi_app)
 
     # blueprints
     from views import reports
