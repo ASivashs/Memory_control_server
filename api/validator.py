@@ -1,4 +1,4 @@
-def validate_data(request: dict) -> dict | bool:
+def validate_data(request) -> dict | bool:
     total = request.json.get("total", "")
     used = request.json.get("used", "")
     used_percentage = request.json.get("used_percentage", "")
